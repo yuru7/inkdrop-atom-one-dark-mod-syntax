@@ -1,7 +1,7 @@
 {
   "name": "atom-one-dark-mod-syntax",
   "description": "Atom One Dark Mod",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "theme": "syntax",
   "repository": {
     "type": "git",
