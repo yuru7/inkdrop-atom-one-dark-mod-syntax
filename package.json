@@ -1,6 +1,6 @@
 {
-  "name": "atom-one-dark-mod-syntax",
-  "description": "Atom One Dark Mod",
+  "name": "dev-atom-one-dark-mod-syntax",
+  "description": "Dev Atom One Dark Mod",
   "version": "0.1.0",
   "theme": "syntax",
   "repository": {
