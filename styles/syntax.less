@@ -1,0 +1,193 @@
+/*
+based: Solarized theme for code-mirror
+http://ethanschoonover.com/solarized
+*/
+
+@import "./colors";
+
+.editor {
+
+  /* Color scheme for code-mirror */
+
+  .CodeMirror {
+    color-profile: sRGB;
+    rendering-intent: auto;
+    color: @base-foreground;
+    background-color: @base-background;
+    //text-shadow: @base-background 0 1px;
+
+    .cm-header { color: @base-red2; }
+
+    .cm-atom { color: @base-orange2; }
+    .cm-number { color: @base-orange1; }
+    .cm-property { color: @base-blue; }
+    .cm-property + .cm-property { color: @base-orange2; }
+    .cm-def { color: @base-red2; }
+    .cm-operator { color: @base-cyan; }
+    .cm-variable { color: @base-red2; }
+    // .cm-variable-2 { color: @base-cyan; }
+    // .cm-variable-3 { color: @base-green; }
+    .cm-keyword { color: @base-purple; }
+    // .cm-keyword セレクタの影響でリストの色も変わってしまう現象を回避
+    .cm-formatting + .cm-keyword { color: @base-foreground; }
+
+    // Bulleted list
+    .cm-variable-2.cm-formatting-list-ul { color: @base-red2; }
+    .cm-variable-3.cm-formatting-list-ul { color: @base-orange2; }
+    .cm-keyword.cm-formatting-list-ul { color: @base-cyan; }
+
+    // Num list
+    .cm-formatting-list-ol { color: @base-purple; }
+
+    // Unchecked task box
+    .cm-formatting.cm-formatting-task.cm-meta { color: @base-mono2; }
+    // Checked task box
+    .cm-formatting.cm-formatting-task.cm-property { color: @base-orange2; }
+
+    // Comment
+    .cm-comment { color: @base-mono2; }
+
+    //Code
+    .cm-formatting-code + .cm-comment {
+      color: @base-cyan;
+    }
+    .cm-formatting-code + .cm-formatting-code {
+      color: @base-mono1;
+    }
+
+    .cm-quote {
+                color: @base-orange1;
+                font-style: italic;
+              }
+
+    .cm-string { color: @base-green; }
+    .cm-string-2 { color: @base-green; }
+
+    .cm-meta { color: @base-green; }
+    .cm-qualifier { color: @base-orange2; }
+    .cm-builtin { color: @base-purple; }
+    .cm-bracket { color: @base-orange2; }
+    .CodeMirror-matchingbracket { color: @base-orange1; }
+    .CodeMirror-nonmatchingbracket { color: @base-red2; }
+    .cm-tag { color: @base-foreground; }
+    .cm-attribute { color: @base-cyan; }
+
+    .CodeMirror-widget {
+      text-shadow: none;
+    }
+
+    /*
+    .cm-hr {
+      color: transparent;
+      border-top: 1px solid @base-mono2;
+      display: block;
+    }
+    */
+    .cm-link { color: @base-blue; cursor: pointer; }
+    .cm-url {
+      color: @base-blue;
+      opacity: 0.7;
+    }
+
+    .cm-em {
+      font-style: italic;
+      color: @base-green; }
+    .cm-strong { color: @base-red2; }
+    .cm-formatting-strong, .cm-formatting-em {
+      opacity: 0.6;
+    }
+
+    .cm-special { color: @base-purple; }
+    .cm-error,
+    .cm-invalidchar {
+      color: @base-mono2;
+      border-bottom: 1px dotted @base-red2;
+    }
+    .cm-whitespace::before {
+      color: @base-mono1;
+      opacity: 0.4;
+    }
+
+    // carriage return
+    .CodeMirror-code > div > pre > span::after, .CodeMirror-line > span::after {
+      color: @base-mono1;
+      opacity: 0.4;
+    }
+    .CodeMirror-selected {
+      // Highlighed text
+      background-color: @base-mono3;
+    }
+  }
+
+//  .CodeMirror div.CodeMirror-selected { background: @base-mono3; }
+//  .CodeMirror.CodeMirror ::selection { background: rgba(87, 96, 109, 0.99); }
+//  .CodeMirror .CodeMirror-line::-moz-selection,  .CodeMirror-line > span::-moz-selection,  .CodeMirror-line > span > span::-moz-selection { background: rgba(87, 96, 109, 0.99); }
+
+
+  /* Editor styling */
+
+
+
+  /* Little shadow on the view-port of the buffer view */
+  .CodeMirror {
+    -moz-box-shadow: inset 7px 0 12px -6px #000;
+    -webkit-box-shadow: inset 7px 0 12px -6px #000;
+    box-shadow: inset 7px 0 12px -6px #000;
+  }
+
+  /* Gutter border and some shadow from it  */
+  .CodeMirror .CodeMirror-gutters {
+    border-right: 1px solid;
+  }
+
+  /* Gutter colors and line number styling based of color scheme (dark / light) */
+
+  /* Dark */
+  .CodeMirror .CodeMirror-gutters {
+    background-color: @base-background;
+    border-color: #4F5B66;
+  }
+
+  /* Common */
+  .CodeMirror .CodeMirror-linenumber {
+    color: @base-mono2;
+    padding: 0 5px;
+  }
+  .CodeMirror .CodeMirror-guttermarker-subtle { color: @base-mono2; }
+  .CodeMirror .CodeMirror-guttermarker { color: #ddd; }
+
+  .CodeMirror .CodeMirror-gutter .CodeMirror-gutter-text {
+    color: @base-mono2;
+  }
+
+  .CodeMirror .CodeMirror-cursor { border-left: 1px solid #FFE9A0; }
+
+  /*
+  Active line. Negative margin compensates left padding of the text in the
+  view-port
+  */
+  .CodeMirror .CodeMirror-activeline-background {
+    background: rgba(255, 255, 255, 0.10);
+  }
+
+  .cm-formatting-header {
+    opacity: 0.3;
+  }
+
+  .cm-searching {
+    // Ctrl + F results
+    border: 1px solid @base-orange2;
+    padding: 2px;
+    color: white !important;
+    background: transparent;
+  }
+
+  .CodeMirror .CodeMirror-linewidget img.inline-widget {
+    background: rgba(255,255,255,0.05);
+  }
+
+  .CodeMirror-vscrollbar {
+    background: @base-mono3
+  }
+
+}
