@@ -32,6 +32,7 @@ http://ethanschoonover.com/solarized
     // .cm-variable-3 { color: @base-green; }
     .cm-keyword { color: @base-purple; }
     // .cm-keyword セレクタの影響で3段目のリストの色も変わってしまう現象を回避
+    .cm-formatting + .cm-keyword { color: @base-foreground; }
     .cm-keyword + .cm-keyword { color: @base-foreground; }
 
     // Bulleted list
